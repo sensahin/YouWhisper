@@ -1,0 +1,22 @@
+<!-- extend base -->
+{% extends "base.html" %}
+<!-- set title -->
+{% block title %}YouWhisper - Convert YouTube Videos to Text by Whisper {% endblock %}
+<!-- set content -->
+{% block content %}
+    <h1>Home</h1>
+    {% if errors %}
+            <div class="alert alert-danger" role="alert">
+                <ul class="list-group">
+                    {% for error in errors %}
+                        <li class="list-group-item">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <p>Enter YouTube video url:</p>
+        <form method="post" action=".">
+            <p><input name="link" /></p>
+            <p><input type="submit" value="Convert" /></p>
+        </form>
+{% endblock %} 

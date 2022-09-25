@@ -18,14 +18,14 @@ def AudiotoText(filename):
     model = pywhisper.load_model("base")
     result = model.transcribe(filename)
     print(result["text"])
+    sonuc = result["text"]
+    return sonuc
 
-def main():
+def main(link):
     print('''
     This tool will convert Youtube videos to mp3 files and then transcribe them to text using Whisper.
     ''')
 
-    print("Enter the link of the video you want to convert:")
-    link = input()
     print("Downloading video... Please wait.")
     try:
         filename = download_video(link)
@@ -40,15 +40,19 @@ def main():
         print("Error converting video to mp3")
         return
     try:
-        AudiotoText(filename[:-4] + ".mp3")
-        print("Transcribed audio to text")
+        model = pywhisper.load_model("base")
+        result = model.transcribe(filename[:-4] + ".mp3")
+        print(result["text"])
+        result = result["text"]
         os.remove(filename)
         os.remove(filename[:-4] + ".mp3")
         print("Removed video and audio files")
         print("Done!")
+        return result
     except:
         print("Error transcribing audio to text")
         return
+    
 
 if __name__ == "__main__":
     main()
