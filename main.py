@@ -1,6 +1,6 @@
 import pytube
 from moviepy.editor import VideoFileClip
-import whisper
+import pywhisper
 import os
 
 def download_video(url):
@@ -15,7 +15,7 @@ def convert_to_mp3(filename):
     clip.close()
 
 def AudiotoText(filename):
-    model = whisper.load_model("base")
+    model = pywhisper.load_model("base")
     result = model.transcribe(filename)
     print(result["text"])
 
