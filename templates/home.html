@@ -4,7 +4,9 @@
 {% block title %}YouWhisper - Convert YouTube Videos to Text by Whisper {% endblock %}
 <!-- set content -->
 {% block content %}
-    <h1>Home</h1>
+<p></p>
+<h1></h1>
+    <h1>Convert Youtube videos to text using openai/whisper </h1>
     {% if errors %}
             <div class="alert alert-danger" role="alert">
                 <ul class="list-group">
@@ -14,9 +16,11 @@
                 </ul>
             </div>
         {% endif %}
-        <p>Enter YouTube video url:</p>
+        <p></p>
         <form method="post" action=".">
-            <p><input name="link" /></p>
-            <p><input type="submit" value="Convert" /></p>
+            <div class="form-group">
+                <input type="text" class="form-control" name="link" placeholder="Enter Youtube URL">
+            </div>
+            <button type="submit" class="btn btn-primary">Convert</button>
         </form>
 {% endblock %} 
