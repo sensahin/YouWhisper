@@ -18,3 +18,6 @@ def home():
             result = main(link)
             return render_template("result.html", result=result)
     return render_template("home.html", errors=errors)
+
+if __name__ == "__main__":
+    app.run(port=80, host="0.0.0.0")
