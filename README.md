@@ -1,6 +1,10 @@
 # YouWhisper
 Convert YouTube videos to text using openai/whisper
 
+# Demo
+
+Demo here: https://huggingface.co/spaces/sensahin/YouWhisper
+
 # Usage
 
     python3 -m venv env
