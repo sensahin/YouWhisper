@@ -44,3 +44,11 @@ If you would like to test it with web ui, you can run following and open **http:
 ![Screenshot2](screenshot2.png)
 
 ![Screenshot3](screenshot3.png)
+
+# Docker
+
+Live demo: https://whisper-dnrl.onrender.com/
+
+Max memory consumption in tests is around 750mb. Works on Render.com (and probably DigitalOcean) as a Docker app with zero install.
+
+However, the app is slow on a virtual cpu.
