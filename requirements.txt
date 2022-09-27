@@ -2,3 +2,4 @@ pytube
 moviepy
 pywhisper
 flask
+static-ffmpeg==2.3
