@@ -16,6 +16,7 @@ def home():
             errors += "<p>{!r} is not a valid link.</p>\n".format(request.form["link"])
         if link is not None:
             result = main(link)
+            print(result)
             return render_template("result.html", result=result)
     return render_template("home.html", errors=errors)
 
