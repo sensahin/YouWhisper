@@ -3,6 +3,8 @@ from moviepy.editor import VideoFileClip
 import pywhisper
 import os
 
+import static_ffmpeg
+
 def download_video(url):
     video = pytube.YouTube(url)
     stream = video.streams.get_by_itag(18)
@@ -25,6 +27,9 @@ def main(link):
     print('''
     This tool will convert Youtube videos to mp3 files and then transcribe them to text using Whisper.
     ''')
+    # FFMPEG installed on first use.
+    print("Initializing FFMPEG...")
+    static_ffmpeg.add_paths()
 
     print("Downloading video... Please wait.")
     try:
