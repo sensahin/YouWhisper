@@ -12,10 +12,14 @@ def home():
         link = None
         try:
             link = request.form["link"]
+            # we need to validate if model is empty or not if empty then we need to set it to base
+            model = request.form["model"]
+            if model == "":
+                model = "base"
         except:
             errors += "<p>{!r} is not a valid link.</p>\n".format(request.form["link"])
         if link is not None:
-            result = main(link)
+            result = main(link,model)
             print(result)
             return render_template("result.html", result=result)
     return render_template("home.html", errors=errors)

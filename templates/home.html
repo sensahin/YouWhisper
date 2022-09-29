@@ -21,6 +21,17 @@
             <div class="form-group">
                 <input type="text" class="form-control" name="link" placeholder="Enter Youtube URL">
             </div>
+            <!-- we will add dropdown to select models: tiny, base, small, medium and we will pass this to the form. Name should be model. -->
+            <div class="form-group">
+                <select class="form-control" name="model">
+                    <!-- add please select text-->
+                    <option value="">Please select model size</option>
+                    <option value="tiny">Tiny - 39M Parameters</option>
+                    <option value="base">Base - 74M Parameters</option>
+                    <option value="small">Small - 244M Parameters</option>
+                    <option value="medium">Medium - 769M Parameters</option>
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary">Convert</button>
         </form>
 {% endblock %} 

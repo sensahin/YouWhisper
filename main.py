@@ -23,10 +23,12 @@ def AudiotoText(filename):
     sonuc = result["text"]
     return sonuc
 
-def main(link):
+def main(link, model):
     print('''
     This tool will convert Youtube videos to mp3 files and then transcribe them to text using Whisper.
     ''')
+    print("URL: " + link)
+    print("MODEL: " + model)
     # FFMPEG installed on first use.
     print("Initializing FFMPEG...")
     static_ffmpeg.add_paths()
@@ -45,8 +47,8 @@ def main(link):
         print("Error converting video to mp3")
         return
     try:
-        model = pywhisper.load_model("base")
-        result = model.transcribe(filename[:-4] + ".mp3")
+        mymodel = pywhisper.load_model(model)
+        result = mymodel.transcribe(filename[:-4] + ".mp3")
         print(result["text"])
         result = result["text"]
         os.remove(filename)
@@ -54,8 +56,9 @@ def main(link):
         print("Removed video and audio files")
         print("Done!")
         return result
-    except:
+    except Exception as e:
         print("Error transcribing audio to text")
+        print(e)
         return
     
 
